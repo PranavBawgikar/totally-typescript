@@ -64,3 +64,52 @@ const user2:bodyStats = {
     height: 5.5,
     weight: 57,
 }
+
+
+// FUNCTION WITH OBJECTS
+const getData = (product: {
+    name:string,
+    stock:number,
+    price:number,
+    photo:string
+}):void => {
+    console.log(product)
+}
+
+type getDataType = (product1: {
+    name1: string
+    stock1: number
+    price1: number
+    photo1: string
+}) => void
+
+const getData2: getDataType = (product1) => {
+    console.log(product1)
+}
+
+
+// CLASSES
+// Demostration of a basic class creation in TS
+class Player {
+    height
+    weight
+    private flexibility
+
+    constructor(height:number, weight:number, flexibility:boolean) {
+        this.height = height
+        this.weight = weight
+        this.flexibility = flexibility
+    }
+}
+
+const pranav = new Player(100, 150, true)
+console.log(pranav.height)
+// console.log(pranav.flexibility) // This LOC will give an error in the TS file but once we compile into JS it will still provide us the value as there is no concept of access modifiers in JS
+
+// The above code can also be written as follows
+class PlayerTwo {
+    constructor(public height:number, public weight:number, private flexibility:boolean) {}
+}
+
+const arnav = new PlayerTwo(100, 150, false)
+console.log(arnav.weight)
